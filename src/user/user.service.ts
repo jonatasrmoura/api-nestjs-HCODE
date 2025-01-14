@@ -40,7 +40,7 @@ export class UserService {
 
   async updatePartial(
     id: number,
-    { birthAt, email, name, password }: UpdatePatchUserDTO,
+    { birthAt, email, name, role, password }: UpdatePatchUserDTO,
   ) {
     await this.exists(id);
 
@@ -51,6 +51,8 @@ export class UserService {
     if (email) data.email = email;
 
     if (name) data.name = name;
+
+    if (role) data.role = role;
 
     if (password) data.password = password;
 
